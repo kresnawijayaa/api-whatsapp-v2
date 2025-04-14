@@ -6,6 +6,11 @@ const setupSwagger = require("./config/swagger");
 const app = express();
 const port = 3000;
 
+const fs = require("fs");
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
+
 app.use(express.json());
 
 setupSwagger(app);
